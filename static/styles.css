@@ -1,0 +1,374 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    padding: 15px;
+    font-family: 'Outfit',sans-serif;
+    color: #45667A;
+    flex-basis: 100px;
+}
+
+/*--------------------- navbar ---------------------*/
+.brand {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2em;
+}
+
+.brand-trac {
+    color: #45667A;
+    background-color: #FFECA3;
+    border: 0px solid;
+    border-radius: 5px;
+    margin-left: 15px;
+    padding-left: 5px;
+}
+
+.brand-count{
+    color: #FD9898;
+}
+
+.navbar-nav li {
+    padding: 0 15px;
+}
+
+.nav-link, .dropdown-item{
+    font-family: 'Outfit',sans-serif;
+    font-size: 1em !important;
+    color: #45667A !important;
+}
+
+.nav-link:hover, .dropdown-item:hover {
+    color: #76AED2 !important;
+}
+
+/*--------------------- about section ---------------------*/
+#about {
+    background-color: white;
+    padding-top: 5px;
+}
+
+.intro {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 50px;
+    color: #45667A;
+}
+
+span.intro {
+    color: #FDB369 !important;
+    font-weight: bold;
+}
+
+p.about {
+    font-size: 1em;
+    font-family: 'Outfit',sans-serif;
+    color: #45667A;
+    text-align: left !important;
+    padding: 10px;
+    margin: 5px 5px 15px;
+}
+
+/*--------------------- button ---------------------*/
+.btn {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1em;
+    background-color: #FD9898;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border: 0px solid;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.btn:hover {
+    color: #FD9898;
+    background-color: white;
+    border: 2px solid #FD9898;
+}
+
+/*--------------------- modal ---------------------*/
+.modal-content {
+    padding: 10px;
+    font-family: 'Outfit',sans-serif;
+    font-size: 1em;
+    color: #45667A;
+}
+
+.modal-title {
+    font-family: 'Fredoka One', cursive !important;
+}
+
+.modal .form-floating {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*--------------------- apology ---------------------*/
+.apology {
+    margin: 10px;
+}
+
+h1.apology {
+    font-family: 'Fredoka One', cursive !important;
+    font-size: 10em;
+    padding: 15px;
+}
+
+p.apology {
+    font-size: 1.5em;
+    font-family: 'Outfit',sans-serif;
+    color: #45667A;
+    font-weight: bold;
+}
+
+/*--------------------- dashboard ---------------------*/
+p.acc_principle {
+    font-family: 'Fredoka One', cursive;
+    display: inline-block;
+    font-size: 1em;
+    background-color: #FD9898 !important;
+    color: white;
+    margin: 10px;
+    padding: 15px 25px;
+    border: 0px solid;
+    border-radius: 10px;
+}
+
+p.about.explain_acc {
+    text-align: center !important;
+    margin-bottom: 30px;
+    font-size: 0.8em !important;
+}
+
+img.analyze {
+    width: 380px;
+    padding: 30px 0;
+}
+
+#balance_sheet {
+    padding: 10px;
+    margin: 5px 10px 10px;
+}
+
+/*--------------------- table ---------------------*/
+.table {
+    font-family: 'Outfit',sans-serif;
+    color: #45667A;
+    font-size: 1em;
+}
+
+thead, tfoot {
+    font-family: 'Fredoka One', cursive !important;
+    border-bottom: 2px solid;
+}
+
+tfoot {
+    border-top: 2px solid;
+    color: #FFF !important;
+    background-color: #76AED2;
+}
+
+tr:hover {
+    color: #FFF;
+    background-color: #A8C3D7;
+}
+
+td.total {
+    font-family: 'Outfit',sans-serif;
+    font-weight: bold;
+}
+
+/*--------------------- account ---------------------*/
+img.account {
+    width: 350px;
+    padding: 10px 0 !important;
+    margin: 0 !important;
+}
+
+#acc_table {
+    padding: 20px !important;
+    margin-right: 30px !important;
+}
+
+#acc_table > tfoot {
+    background-color: #FDB369;
+}
+
+/*--------------------- filter ---------------------*/
+#filter {
+    margin-bottom: 40px;
+}
+
+.form-inline {
+    display: flex;
+    width: auto;
+    font-size: 0.9em !important;
+}
+
+.btn-sm {
+    width: 15%;
+    background-color: #76AED2 !important;
+}
+
+.btn-sm:hover {
+    color: #76AED2 !important;
+    background-color: #FFF !important;
+    border-color:#76AED2 !important;
+}
+
+.form-floating.month {
+    margin-right: 10px;
+}
+
+div.filter > form {
+    float: right;
+    text-align: left;
+}
+
+@media (max-width: 991.98px) {
+    div.filter > form {
+        float: none;
+        justify-content: center;
+    }
+}
+
+/*--------------------- cashflow ---------------------*/
+#expense_table > tfoot, #income_table > tfoot {
+    background-color: #FDB369;
+}
+
+#expense_table, #income_table {
+    margin-bottom: 50px;
+}
+
+div.subtitle {
+    font-family: 'Fredoka One', cursive;
+    color: #45667A;
+    background-color: #FFECA3;
+    width: 70px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 10px 5px;
+}
+
+/*--------------------- person ---------------------*/
+input[type='radio'].pic {
+    opacity: 0;
+}
+
+img.pic {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #45667A;
+    border-radius: 50%;
+    margin: 5px;
+    object-fit: cover;
+}
+
+td > img.pic {
+    border: none !important;
+}
+
+label.pic {
+    cursor: pointer;
+    filter: opacity(70%);
+}
+
+label.pic:hover {
+    filter: opacity(100%);
+}
+
+input[type='radio'].pic:checked + label {
+    filter: opacity(100%);
+}
+
+div.grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.btn-settle {
+    width: 100px;
+}
+
+/*--------------------- add new record for person ---------------------*/
+#add_new_form {
+    padding: 10px;
+    font-family: 'Outfit',sans-serif;
+    font-size: 1em;
+    color: #45667A;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.subtitle.add_new {
+    background-color: #FFF;
+    width: 500px;
+    padding: 10px;
+    border-bottom: 2px solid #45667A;
+    margin: 10px auto 30px;
+    text-align: center;
+}
+
+.subtitle.bnl {
+    display: inline-block;
+    width: 110px;
+    margin-bottom: 30px !important;
+}
+
+img.add_new {
+    opacity: 50%;
+    width: 125%;
+}
+
+/* additional form fields via checked radio button */
+.reveal-if-active {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: 0.5s;
+}
+
+input[type="radio"]:checked ~ .reveal-if-active {
+    opacity: 1;
+    max-height: 70px;
+    overflow: visible;
+    padding: 10px 20px;
+    transform: scale(1);
+}
+
+@media (max-width: 991.98px) {
+    div.add_new_pic {
+        display: none;
+    }
+}
+
+/*--------------------- change password ---------------------*/
+#change_password_form {
+    padding: 10px;
+    font-family: 'Outfit',sans-serif;
+    font-size: 1em;
+    color: #45667A;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+img.ch_pass {
+    opacity: 50%;
+    width: 150%;
+}

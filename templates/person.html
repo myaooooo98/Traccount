@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Borrowers & Lenders
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="subtitle bnl">
+                    <h4>Borrowers</h4>
+                </div>
+                <div class="subtitle bnl" style="background-color: white; width: 10px !important;">
+                    <h4>&</h4>
+                </div>
+                <div class="subtitle bnl" style="background-color: white; padding-left: 0px">
+                    <h4>Lenders</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-5">
+        <table class="table align-middle table-responsive" id="person_table">
+            <colgroup>
+                <col style="width: 20%">
+                <col style="width: 30%">
+                <col style="width: 25%">
+                <col style="width: 25%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="2">Name</th>
+                    <th class="text-center">Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                <tr>
+                    <td><img src="{{ person['pic'] }}" class="pic text-center"></td>
+                    <td class="text-start">{{ person['person_name'] }}</td>
+                    <td class="text-center">{{ person['amount'] | currency }}</td>
+                    <td>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-settle" data-bs-toggle="modal" data-bs-target="#settle_modal{{ person['id'] }}">Settle</button>
+                        </div>
+                        <div class="modal" id="settle_modal{{ person['id'] }}" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Settlement for {{ person['person_name'] }} : {{ person['amount'] | currency }}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/settle" name="settle" method="post">
+                                        <div class="mb-3">
+                                            <input name="id" type="hidden" value="{{ person['id'] }}">
+                                        </div>
+                                        <div class="mb-3 form-floating">
+                                            <select class="form-select" name="account" id="account">
+                                                <option disabled selected>Account</option>
+                                                <!-- iterate over all of the category -->
+                                                {% for account in ACCOUNT %}
+                                                    <option>{{ account }}</option>
+                                                {% endfor %}
+                                            </select>
+                                            <label for="account">Account Involved</label>
+                                        </div>
+                                        <div class="mb-3 form-floating">
+                                            <input class="form-control" name="amount" placeholder="Amount" type="number" step="0.01">
+                                            <label for="amount">Amount</label>
+                                        </div>
+                                        <button class="btn" type="submit">Settle</button>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mb-3">
+        <a href="/add_new" class="btn">Add New Records</a>
+    </div>
+
+    <div class="mb-3">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#add_person_modal">Add New Person</button>
+    </div>
+
+    <div class="modal" id="add_person_modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="add_person_label">Add Borrower / Lender</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/add_person" method="post">
+                    <div class="mb-4 grid">
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="airy" value="/static/profile-pic/Airy.png">
+                            <label for="airy" class="pic"><img src="/static/profile-pic/Airy.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="hijab2" value="/static/profile-pic/Hijab2.png">
+                            <label for="hijab2" class="pic"><img src="/static/profile-pic/Hijab2.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="long" value="/static/profile-pic/Long.png">
+                            <label for="long" class="pic"><img src="/static/profile-pic/Long.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="rad" value="/static/profile-pic/Rad.png">
+                            <label for="rad" class="pic"><img src="/static/profile-pic/Rad.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="shortbeard" value="/static/profile-pic/Short Beard.png">
+                            <label for="shortbeard" class="pic"><img src="/static/profile-pic/Short Beard.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="short2" value="/static/profile-pic/Short2.png">
+                            <label for="short2" class="pic"><img src="/static/profile-pic/Short2.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="top" value="/static/profile-pic/Top.png">
+                            <label for="top" class="pic"><img src="/static/profile-pic/Top.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="turban2" value="/static/profile-pic/Turban2.png">
+                            <label for="turban2" class="pic"><img src="/static/profile-pic/Turban2.png" class="pic"></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="pic" class="pic" id="wavy" value="/static/profile-pic/Wavy.png">
+                            <label for="wavy" class="pic"><img src="/static/profile-pic/Wavy.png" class="pic"></label>
+                        </div>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input autocomplete="off" autofocus class="form-control" id="person_name" name="person_name" placeholder="Name" type="text">
+                        <label for="person_name">Person's Name</label>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn">Add Person</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="acc_principle">ASSET + LIABILITY + EXPENSES = EQUITY + INCOME</p>
+                <p class="about explain_acc">The basic principle of accounting which will make the debit and credit account to be balanced.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <table class="table" id="balance_sheet">
+                    <thead>
+                        <tr>
+                            <th class="text-start"></th>
+                            <th class="text-center">Debit</th>
+                            <th class="text-center">Credit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-start">Equity</td>
+                            <td class="text-center"></td>
+                            <td class="text-center">{{ equity_amount | currency }}</td>
+                        </tr>
+                        {% for account in accounts %}
+                        <tr>
+                            <td class="text-start">{{ account.category }}</td>
+                            <td class="text-center">{{ account.balance | currency }}</td>
+                            <td class="text-center"></td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td class="text-start">Income</td>
+                            <td class="text-center"></td>
+                            <td class="text-center">{{ income_amount | currency }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Expenses</td>
+                            <td class="text-center">{{ expenses_amount | currency }}</td>
+                            <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Borrower</td>
+                            <td class="text-center">{{ borrower_amount | currency }}</td>
+                            <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Lender</td>
+                            <td class="text-center"></td>
+                            <td class="text-center">{{ lender_amount | currency }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-center fw-bold">TOTAL</td>
+                            <td class="text-center fw-bold total">{{ debit_total | currency }}</td>
+                            <td class="text-center fw-bold total">{{ credit_total | currency }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-md-5">
+                <img src="/static/analyze.png" class="image-fluid text-center analyze">
+            </div>
+        </div>
+    </div>
+{% endblock %}

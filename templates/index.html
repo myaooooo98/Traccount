@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/static/network.png" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="intro">Your Personal <span class="intro">MONEY TRACKER</span></h2>
+                    <p class="about">Keep track of your income, expenses and the amount that you owed others and vice versa! Make sure your account to be balanced all the time.</p>
+                    <button type="button" class="btn btn-modal" data-bs-toggle="modal" data-bs-target="#login_modal">Login</button>
+                    <br>
+                    <button type="button" class="btn btn-modal" data-bs-toggle="modal" data-bs-target="#register_modal">Register</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- https://stackoverflow.com/questions/22071042/dynamic-bootstrap-modal-within-a-loophttps://stackoverflow.com/questions/22071042/dynamic-bootstrap-modal-within-a-loop -->
+    <!-- https://stackoverflow.com/questions/41348201/onclick-pass-value-to-popup-modal -->
+    <!-- https://stackoverflow.com/questions/21840825/bootstrap-3-form-modal-while-in-loop -->
+    <!-- https://stackoverflow.com/questions/42441574/passing-information-to-modal-in-for-loop -->
+    <!-- https://www.youtube.com/watch?v=7nrVtrIBRh8 -->
+    <div class="modal" id="login_modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="login_label">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/login" method="post">
+                    <div class="mb-3 form-floating">
+                        <input autocomplete="off" autofocus class="form-control" id="lo-username" name="username" placeholder="Username" type="text">
+                        <label for="lo-username">Username</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input class="form-control" id="lo-password" name="password" placeholder="Password" type="password">
+                        <label for="lo-password">Password</label>
+                    </div>
+                    <button class="btn" type="submit">Log In</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="register_modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="register_label">Register</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/register" method="post">
+                    <div class="mb-3 form-floating">
+                        <input autocomplete="off" autofocus class="form-control" id="re-username" name="username" placeholder="Username" type="text">
+                        <label for="re-username">Username</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input class="form-control" id="re-password" name="password" placeholder="Password" type="password">
+                        <label for="re-password">Password</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input class="form-control" id="re-passcheck" name="passcheck" placeholder="Confirm Password" type="password">
+                        <label for="re-passcheck">Confirm Password</label>
+                    </div>
+                    <button class="btn" type="submit">Register</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
