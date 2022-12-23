@@ -19,11 +19,11 @@ A money tracker web application that allows users to track their cashflow, inclu
 
 ## Installation
 - Clone / fork this repository.
-- Create a virtual environment in your local Traccount directory
+- Create a virtual environment in your local Traccount directory (refer to [tutorial](https://code.visualstudio.com/docs/python/tutorial-flask))
 - Install the requireed libraries listed in [requirement.txt](requirement.txt).
 - Run the application
 ```
-$ flask run
+$ python -3 -m flask run
 ```
 
 ## Features
